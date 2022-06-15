@@ -35,6 +35,7 @@ export default {
 
 <style scoped lang="scss">
 .home {
-
+  height: 100vh;
+  overflow: hidden;
 }
 </style>

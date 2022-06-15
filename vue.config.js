@@ -5,5 +5,10 @@ module.exports = {
                 additionalData: `@import "@/assets/styles/variables.scss";`
             }
         }
+    },
+
+    publicPath: './',
+    pluginOptions: {
+      cordovaPath: 'ClickBall'
     }
 }

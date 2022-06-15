@@ -40,6 +40,7 @@ export default {
   width: 100%;
   height: 100%;
   background: linear-gradient(#CE9FFC, #7367F0);
+  color: #fff;
 
   &__wrapper {
     height: 100%;

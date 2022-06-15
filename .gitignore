@@ -21,3 +21,8 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+# Cordova
+/ClickBall/platforms
+/ClickBall/plugins
+/public/cordova.js

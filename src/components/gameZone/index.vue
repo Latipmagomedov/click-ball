@@ -40,7 +40,7 @@ export default {
         maxBall: 20
       },
       audio: {
-        explosion: require('@/assets/audio/explosion.mp3')
+        explosion: new Audio(require('@/assets/audio/explosion.mp3'))
       },
       colors: ['#5199FF', '#FFBEED', '#FBCEB5', '#FED876'],
       balls: [],
@@ -59,8 +59,8 @@ export default {
     createBall() {
       setInterval(() => {
         if (!this.$refs.gameZone) return
-        const w = this.$refs.gameZone.offsetWidth
-        const h = this.$refs.gameZone.offsetHeight
+        const w = this.$refs.gameZone.offsetWidth - 50
+        const h = this.$refs.gameZone.offsetHeight - 50
 
         this.balls.push({
           x: this.getRandomArbitrary(0, w),
@@ -74,9 +74,10 @@ export default {
     },
     deleteBall(index) {
       this.balls[index].animation = true
-      setTimeout(() => this.balls.splice(index, 1), 100)
+      setTimeout(() => this.balls.splice(index, 1), 30)
       this.points++
-      new Audio(this.audio.explosion).play()
+      this.audio.explosion.autoplay = true;
+      this.audio.explosion.play()
 
       if (this.points > this.oldRecord) localStorage.setItem('record', this.points)
     },
@@ -90,9 +91,13 @@ export default {
 
 <style scoped lang="scss">
 .game {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background: linear-gradient(#CE9FFC, #7367F0);
+  color: #fff;
 
   &__header {
     width: 100%;
@@ -100,7 +105,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgba(66, 83, 89, 0.34);
+    background-color: rgba(66, 83, 89, 0.11);
   }
 
   &__header-wrapper {
@@ -126,7 +131,7 @@ export default {
 
   &__zone {
     position: relative;
-    height: calc(100vh - 50px);
+    height: calc(100% - 100px);
     overflow: hidden;
   }
 

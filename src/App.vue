@@ -8,11 +8,12 @@
   padding: 0;
   box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  user-select: none;
 }
 
 body {
-  background-color: #000;
-  color: #fff;
+  background-color: #ffffff;
+  color: #000000;
   font-family: sans-serif;
 }
 
